@@ -1,10 +1,17 @@
 language: node_js
 node_js:
-  - "stable"
+- stable
 install: npm install
 services:
-  - postgresql
+- postgresql
 before_script:
-  - npm run db:create:test
+- npm run db:create:test
 script: npm test
 after_success: npm run coverage
+deploy:
+  provider: heroku
+  api_key:
+    secure: cIXKlJLgD7P/vmb6jvqK/M/MWjcvzGDlX4p/GD45YT9lDDjE18SRev7LVAaBkiduE8yif3E9qPsTywYoZ3vl2JEhaazR8V9frIJoCaY9SnJHdyWobjXor6SfEv6GvdTKolfkw8DwPLeIENwArbScm6jn39NyyvV0yjJNRNWOI/xkN/XqCmOTn72XMAod5uZsfloUrg8ELT+AXB89sykFU8HbaKUipMp7uhxc7+B6TQIcGkhsT5//ASjayZ8jjDmTu67g+FUoJvgZTJQdCiLir3QSHGi0II50jm082Xihftf29uBH5kpHFRqWPBYsUG9Mh9W7nU1cPinO377okno+e5kuOjPVh664ut106wjBsG0upcVTvmIFNR1PeW6hvh8fvwabrlWq6AJyP/5AvynyfdbYibQBTQ2Wi0mTozTEEu6PWZ5OprlZ3v57Kcq1U6xwdesWxsHTaF7WgkN45VRG2Admi3gzvrajDquj3loKuITkmoHdYhZPeQDj+PdpVRVd5b/tGnUWFSIy0M4/tkUWjF2z1bb6NhzWmvujC84Vs21QkXp/y48wZau3gOheg526jIpDO8L4TccSez49r4J9BSGNlvaxUOb6G5JWRU5BcT2KIJVrMduBHX4v5fUqUi2EKXonR3Rf9LFcgwa4txLKfJzjgQjOdpKb7AomrMYBUQo=
+  app: traviswearscoveralls
+  on:
+    repo: JordanCruzCorrea/express-api-ci
