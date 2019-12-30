@@ -7,6 +7,7 @@
     "test": "cross-env NODE_ENV=test jest  --testTimeout=10000 --detectOpenHandles --forceExit",
     "pretest": "cross-env NODE_ENV=test npm run db:reset",
     "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create",
+    "db:drop:test": "cross-env NODE_ENV=test npx sequelize-cli db:drop",
     "start": "node server.js",
     "dev": "nodemon server.js",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
@@ -27,6 +28,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "coveralls": "^3.0.9",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "morgan": "^1.9.1",
